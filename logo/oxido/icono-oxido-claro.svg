@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120" role="img" aria-label="Software Engineering Services">
+<g transform="translate(0,0)">
+  <defs>
+    <filter id="ses3b0" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="1.6"/></filter>
+    <filter id="ses3b1" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="0.8"/></filter>
+    <radialGradient id="ses3n" cx="35%" cy="32%" r="70%"><stop offset="0" stop-color="#cee7e4"/><stop offset=".55" stop-color="#3A9D93"/><stop offset="1" stop-color="#266660"/></radialGradient>
+    <radialGradient id="ses3m" cx="35%" cy="32%" r="70%"><stop offset="0" stop-color="#f6ddd2"/><stop offset=".55" stop-color="#D9784A"/><stop offset="1" stop-color="#8d4e30"/></radialGradient>
+  </defs>
+  <rect width="120" height="120" rx="28" fill="#F1F5F9"/>
+  <g filter="url(#ses3b0)" opacity="0.8">
+    <path d="M44 40 L30 60 L44 80 M76 40 L90 60 L76 80" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke="#0B1A2E" stroke-width="10.9"/>
+    <path d="M44 40 L30 60 L44 80 M76 40 L90 60 L76 80" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke="#729199" stroke-width="8.5"/>
+    <path d="M44 40 L30 60 L44 80 M76 40 L90 60 L76 80" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke="#9FC9D4" stroke-width="6.1" transform="translate(-.5,-.6)"/>
+    <path d="M44 40 L30 60 L44 80 M76 40 L90 60 L76 80" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke="#e2eff2" stroke-width="2" opacity=".75" transform="translate(-1.3,-1.6)"/>
+  </g>
+  <g filter="url(#ses3b1)" opacity="0.9">
+    <path d="M39 40 L25 60 L39 80 M81 40 L95 60 L81 80" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke="#0B1A2E" stroke-width="10.9"/>
+    <path d="M39 40 L25 60 L39 80 M81 40 L95 60 L81 80" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke="#2a716a" stroke-width="8.5"/>
+    <path d="M39 40 L25 60 L39 80 M81 40 L95 60 L81 80" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke="#3A9D93" stroke-width="6.1" transform="translate(-.5,-.6)"/>
+    <path d="M39 40 L25 60 L39 80 M81 40 L95 60 L81 80" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke="#c4e2df" stroke-width="2" opacity=".75" transform="translate(-1.3,-1.6)"/>
+  </g>
+  <g>
+    <path d="M34 40 L20 60 L34 80 M86 40 L100 60 L86 80" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke="#0B1A2E" stroke-width="10.9"/>
+    <path d="M34 40 L20 60 L34 80 M86 40 L100 60 L86 80" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke="#15263f" stroke-width="8.5"/>
+    <path d="M34 40 L20 60 L34 80 M86 40 L100 60 L86 80" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke="#1D3557" stroke-width="6.1" transform="translate(-.5,-.6)"/>
+    <path d="M34 40 L20 60 L34 80 M86 40 L100 60 L86 80" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke="#bbc2cd" stroke-width="2" opacity=".75" transform="translate(-1.3,-1.6)"/>
+  </g>
+  <path d="M55 76 L60 60 L65 44" fill="none" stroke="#3A9D93" stroke-width="3.5" stroke-linecap="round" opacity=".8"/>
+  <circle cx="55" cy="76" r="5.8" fill="url(#ses3n)" stroke="#0B1A2E" stroke-width="1.3"/><circle cx="60" cy="60" r="8.7" fill="url(#ses3m)" stroke="#0B1A2E" stroke-width="1.3"/><circle cx="65" cy="44" r="5.8" fill="url(#ses3n)" stroke="#0B1A2E" stroke-width="1.3"/>
+</g>
+</svg>

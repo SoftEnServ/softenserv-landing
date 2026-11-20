@@ -1,0 +1,83 @@
+# Verificación en cada push y pull request. No despliega nada: solo comprueba que todo funcione.
+#   1. frontend: compila en modo producción
+#   2. api: crea una base PostgreSQL desde cero (como Docker), aplica todas las migraciones y ejecuta
+#      las pruebas de api/test (proyectos, contenido, formulario y límites de largo)
+#   3. docker: construye las imágenes de la API y de la web
+name: Verificación
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+# Si llega un push nuevo a la misma rama, se cancela la verificación anterior
+concurrency:
+  group: verificacion-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  frontend:
+    name: Frontend compila
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: frontend
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+      - run: npm ci
+      - name: Compilar (producción)
+        run: npx ng build --configuration production
+
+  api:
+    name: API y base de datos
+    runs-on: ubuntu-latest
+    services:
+      db:
+        image: postgres:17-alpine
+        env:
+          POSTGRES_DB: ses
+          POSTGRES_USER: ses
+          POSTGRES_PASSWORD: ses
+        ports: ['5432:5432']
+        options: >-
+          --health-cmd "pg_isready -U ses -d ses"
+          --health-interval 5s --health-timeout 5s --health-retries 10
+    env:
+      DB_HOST: localhost
+      DB_PORT: 5432
+      DB_NAME: ses
+      DB_USER: ses
+      DB_PASSWORD: ses
+      PGPASSWORD: ses
+    defaults:
+      run:
+        working-directory: api
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: api/package-lock.json
+      - run: npm ci
+      - name: Crear la base como Docker (db/init)
+        run: for f in ../db/init/*.sql; do psql -h localhost -U ses -d ses -v ON_ERROR_STOP=1 -q -f "$f"; done
+      - name: Pruebas de la API (aplica las migraciones al arrancar)
+        run: npm test
+
+  docker:
+    name: Imágenes Docker
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Construir API y web
+        run: docker compose build api web

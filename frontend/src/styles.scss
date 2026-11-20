@@ -1,0 +1,347 @@
+:root {
+  /* Marca */
+  /* Efecto tubular para superficies de color (botones verdes/azules): igual en ambos temas */
+  --tube-color: linear-gradient(180deg, rgba(255, 255, 255, .30) 0%, rgba(255, 255, 255, .08) 38%, rgba(0, 0, 0, 0) 55%, rgba(0, 0, 0, .22) 100%);
+  --tube-color-inset: inset 0 1px 0 rgba(255, 255, 255, .35), inset 0 -2px 0 rgba(0, 0, 0, .25);
+  --navy: #1d3557;
+  --navy-soft: #2c4a72;
+  --radius: 22px; /* esquinas suaves (tarjetas) */
+  /* Tipografías: Manrope para títulos, Inter para el resto (párrafos, botones, navegación) */
+  --font-title: 'Manrope', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-text: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --footer-h: 52px; /* alto del footer fijo (más delgado) */
+  /* Cuánto se oscurece y desenfoca la página anterior al cambiar de página */
+  --vt-dim: .94;
+  --vt-blur: 2px;
+  --max: 1160px;
+
+  /* Modo claro: fondo suave, sin blanco puro */
+  --bg: #f3f5f8;
+  --bg-alt: #e9edf2;
+  --surface: #fafbfc;
+  /* Campos de texto hundidos: fondo algo más oscuro que la tarjeta, sombra interior arriba y canto iluminado abajo */
+  --input-bg: #e8ecf1;
+  --input-depth: inset 0 4px 9px rgba(16, 24, 40, .22), inset 0 1px 2px rgba(16, 24, 40, .16), inset 0 -1px 0 rgba(255, 255, 255, .6), 0 1px 0 rgba(255, 255, 255, 1);
+  --input-depth-focus: inset 0 5px 12px rgba(16, 24, 40, .28), inset 0 1px 3px rgba(16, 24, 40, .18), inset 0 -1px 0 rgba(255, 255, 255, .6), 0 1px 0 rgba(255, 255, 255, 1), 0 0 0 3px rgba(58, 157, 147, .22);
+  --input-depth-error: inset 0 4px 9px rgba(16, 24, 40, .22), inset 0 1px 2px rgba(16, 24, 40, .16), 0 0 0 3px rgba(192, 57, 43, .16);
+  --ink: #1f2937;
+  --muted: #5b6676;
+  --heading: #1d3557;
+  --line: #dce2ea;
+  --teal: #3a9d93;
+  --teal-soft: #dfefed;
+  /* Acento secundario: naranjo claro tono óxido (llamados de atención, trabajo en curso) */
+  --rust: #d9784a;
+  --rust-soft: #fbe8dd;
+  --rust-rgb: 217, 120, 74;
+  --rust-text: #ad5428; /* mismo tono, más oscuro: texto pequeño legible sobre fondo claro */
+  --rust-title: #c86a3d; /* títulos de sección: óxido apenas más profundo, legible sobre fondos claros */
+  /* Tarjetas: tono propio, borde y sombra para que contrasten con el fondo */
+  --card-bg: #ffffff;
+  --card-line: #d3dae4;
+  /* Neomorfismo: cada pieza parece sólida, moldeada en la superficie. Luz desde arriba a la izquierda:
+     una sombra clara hacia allá, una oscura hacia abajo a la derecha y un bisel interior (canto iluminado
+     arriba, canto en sombra abajo). Se suma a los colores y sombras propios de cada pieza. */
+  --neo-hi: #ffffff;
+  --neo-lo: rgba(84, 102, 134, .5);
+  --neo-raise: -11px -11px 24px var(--neo-hi), 12px 13px 26px var(--neo-lo);
+  --neo-raise-sm: -6px -6px 13px var(--neo-hi), 7px 8px 15px var(--neo-lo);
+  --neo-bevel: inset 3px 3px 3px rgba(255, 255, 255, 1), inset -4px -5px 9px rgba(29, 53, 87, .22);
+  --neo-bevel-color: inset 3px 3px 3px rgba(255, 255, 255, .5), inset -4px -5px 9px rgba(0, 0, 0, .36); /* sobre colores (botón) */
+  --neo-press: inset 6px 6px 12px var(--neo-lo), inset -6px -6px 12px var(--neo-hi);
+  --card-shadow: var(--neo-bevel), var(--neo-raise);
+  /* Textos e íconos en relieve suave, como los botones: luz arriba a la izquierda y sombra difusa abajo a la derecha.
+     --neo-text-lg es para titulares grandes (más separación y difuminado). */
+  --neo-text: -1px -1px 1px #ffffff, 2px 2px 3px rgba(84, 102, 134, .45);
+  --neo-text-lg: -2px -2px 3px #ffffff, 4px 4px 7px rgba(84, 102, 134, .38);
+  --neo-icon: drop-shadow(-1px -1px 1px #ffffff) drop-shadow(2px 2px 2px rgba(84, 102, 134, .55));
+  --rust-card: color-mix(in srgb, var(--card-bg) 76%, var(--rust)); /* fondo de tarjeta destacada */
+  --btn-bg: #1d3557;
+  --btn-bg-hover: #2c4a72;
+  --btn-fg: #ffffff;
+  --header-bg: rgba(243, 245, 248, .9);
+  /* Navbar tubular: brillo arriba, leve oscurecimiento abajo y sombra suave */
+  --nav-tube: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, .35) 35%, rgba(29, 53, 87, .00) 55%, rgba(29, 53, 87, .14) 100%);
+  --tube-inset: inset 0 1px 0 #ffffff, inset 0 -2px 0 rgba(29, 53, 87, .14);
+  --nav-tube-shadow: var(--tube-inset), 0 10px 22px -10px rgba(29, 53, 87, .5);
+  /* Neomorfismo en el cuerpo del header y del footer: canto de luz arriba, sombra interior abajo y la barra se despega de la página */
+  --header-neo: inset 0 3px 3px #ffffff, inset 0 -6px 12px rgba(29, 53, 87, .2), 0 8px 18px -4px rgba(84, 102, 134, .45);
+  --footer-neo: inset 0 2px 2px rgba(255, 255, 255, .2), inset 0 -4px 8px rgba(0, 0, 0, .25), 0 -3px 8px -3px rgba(84, 102, 134, .28);
+  --tube-item-shadow: 0 4px 10px -6px rgba(29, 53, 87, .35);
+  /* Footer: efecto tubular INVERSO (luz abajo, sombra arriba) */
+  --footer-tube: linear-gradient(0deg, rgba(255, 255, 255, .20) 0%, rgba(255, 255, 255, .06) 35%, rgba(0, 0, 0, 0) 55%, rgba(0, 0, 0, .28) 100%);
+  --footer-tube-shadow: inset 0 -1px 0 rgba(255, 255, 255, .28), inset 0 2px 0 rgba(0, 0, 0, .28), 0 -4px 10px -6px rgba(29, 53, 87, .3);
+  --footer-bg: #1d3557;
+  --code-bg: #1d3557;
+  --code-border: transparent;
+  --code-shadow: 0 20px 50px rgba(29, 53, 87, .18);
+  --warn: #b7731a;
+  --danger: #c0392b;
+  --shadow: 0 1px 2px rgba(16, 24, 40, .04), 0 6px 20px rgba(16, 24, 40, .06);
+  --shadow-hover: 0 4px 8px rgba(16, 24, 40, .05), 0 16px 36px rgba(16, 24, 40, .10);
+  --btn-shadow: 0 1px 2px rgba(16, 24, 40, .06);
+  --btn-shadow-hover: 0 6px 12px rgba(16, 24, 40, .20), 0 16px 36px rgba(16, 24, 40, .34);
+  color-scheme: light;
+}
+
+[data-theme='dark'] {
+  --vt-dim: .55;
+  --vt-blur: 4px;
+  --bg: #121826;
+  --bg-alt: #0e1420;
+  --surface: #1a2233;
+  --input-bg: #0c111b;
+  --input-depth: inset 0 4px 11px rgba(0, 0, 0, .8), inset 0 1px 3px rgba(0, 0, 0, .65), 0 1px 0 rgba(255, 255, 255, .09);
+  --input-depth-focus: inset 0 5px 14px rgba(0, 0, 0, .9), inset 0 1px 3px rgba(0, 0, 0, .7), 0 1px 0 rgba(255, 255, 255, .09), 0 0 0 3px rgba(79, 179, 168, .28);
+  --input-depth-error: inset 0 4px 11px rgba(0, 0, 0, .8), inset 0 1px 3px rgba(0, 0, 0, .65), 0 0 0 3px rgba(240, 113, 103, .22);
+  --ink: #e4e8ee;
+  --muted: #9ba5b4;
+  --heading: #f1f4f8;
+  --line: #2a3446;
+  --teal: #4fb3a8;
+  --teal-soft: rgba(79, 179, 168, .14);
+  --rust: #ee9a6e;
+  --rust-soft: rgba(238, 154, 110, .14);
+  --rust-rgb: 238, 154, 110;
+  --rust-text: #ee9a6e;
+  --rust-title: #ee9a6e;
+  --card-bg: #212c41;
+  --card-line: #36435c;
+  /* Neomorfismo oscuro: la luz es un resplandor tenue y la sombra, casi negra */
+  --neo-hi: rgba(150, 170, 205, .1);
+  --neo-lo: rgba(0, 0, 0, .78);
+  --neo-raise: -9px -9px 20px var(--neo-hi), 13px 14px 28px var(--neo-lo);
+  --neo-raise-sm: -5px -5px 11px var(--neo-hi), 7px 8px 16px var(--neo-lo);
+  --neo-bevel: inset 3px 3px 3px rgba(255, 255, 255, .19), inset -4px -5px 10px rgba(0, 0, 0, .62);
+  --neo-bevel-color: inset 3px 3px 3px rgba(255, 255, 255, .46), inset -4px -5px 9px rgba(0, 0, 0, .45);
+  --neo-press: inset 6px 6px 13px var(--neo-lo), inset -5px -5px 11px var(--neo-hi);
+  --card-shadow: var(--neo-bevel), var(--neo-raise);
+  --neo-text: -1px -1px 1px rgba(160, 180, 215, .2), 2px 2px 4px rgba(0, 0, 0, .9);
+  --neo-text-lg: -2px -2px 3px rgba(160, 180, 215, .16), 4px 5px 9px rgba(0, 0, 0, .85);
+  --neo-icon: drop-shadow(-1px -1px 1px rgba(160, 180, 215, .22)) drop-shadow(2px 2px 2px rgba(0, 0, 0, .9));
+  --rust-card: color-mix(in srgb, var(--card-bg) 74%, var(--rust));
+  --btn-bg: #3a9d93;
+  --btn-bg-hover: #3a9d93; /* en oscuro el fondo no cambia al pasar el mouse */
+  --btn-fg: #0b1416;        /* texto casi negro sobre el botón verde */
+  --header-bg: rgba(18, 24, 38, .88);
+  --nav-tube: linear-gradient(180deg, rgba(255, 255, 255, .16) 0%, rgba(255, 255, 255, .05) 35%, rgba(0, 0, 0, 0) 55%, rgba(0, 0, 0, .45) 100%);
+  --tube-inset: inset 0 1px 0 rgba(255, 255, 255, .18), inset 0 -2px 0 rgba(0, 0, 0, .6);
+  --nav-tube-shadow: var(--tube-inset), 0 10px 24px -10px rgba(0, 0, 0, .95);
+  --header-neo: inset 0 3px 3px rgba(160, 180, 215, .16), inset 0 -6px 12px rgba(0, 0, 0, .55), 0 8px 18px -4px rgba(0, 0, 0, .8);
+  --footer-neo: inset 0 2px 2px rgba(160, 180, 215, .16), inset 0 -4px 8px rgba(0, 0, 0, .32), 0 -3px 8px -3px rgba(0, 0, 0, .5);
+  --tube-item-shadow: 0 4px 12px -6px rgba(0, 0, 0, .8);
+  /* Footer oscuro con más contraste: tono pizarra más claro que la página y una línea de luz en el borde superior */
+  --footer-tube: linear-gradient(0deg, rgba(255, 255, 255, .14) 0%, rgba(255, 255, 255, .04) 35%, rgba(0, 0, 0, 0) 55%, rgba(0, 0, 0, .3) 100%);
+  --footer-tube-shadow: inset 0 1px 0 rgba(255, 255, 255, .22), inset 0 -1px 0 rgba(255, 255, 255, .14), 0 -4px 10px -6px rgba(0, 0, 0, .6);
+  --footer-bg: #24324a;
+  --code-bg: #0e1420;
+  --code-border: #2a3446;
+  --code-shadow: 0 20px 50px rgba(0, 0, 0, .35);
+  --warn: #e0a24a;
+  --danger: #f07167;
+  --shadow: 0 1px 2px rgba(0, 0, 0, .2), 0 6px 20px rgba(0, 0, 0, .3);
+  --shadow-hover: 0 4px 10px rgba(0, 0, 0, .25), 0 18px 40px rgba(0, 0, 0, .4);
+  --btn-shadow: 0 1px 2px rgba(0, 0, 0, .25);
+  /* En oscuro una sombra negra no contrasta: se usa un resplandor claro (blanco verdoso) con la misma forma */
+  --btn-shadow-hover: 0 6px 14px rgba(214, 245, 240, .26), 0 16px 36px rgba(214, 245, 240, .16);
+  color-scheme: dark;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+/* Espacio reservado para la barra de scroll: si aparece o desaparece, el contenido no se corre de lado */
+html { scrollbar-gutter: stable; }
+/* No se puede seleccionar texto en el sitio (salvo al escribir en el formulario) */
+html, dialog, dialog * { -webkit-user-select: none; user-select: none; }
+input, textarea, [contenteditable='true'] { -webkit-user-select: text; user-select: text; }
+
+body {
+  margin: 0;
+  font-family: var(--font-text);
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--ink);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  transition: background-color .25s ease, color .25s ease;
+  padding-bottom: var(--footer-h); /* espacio para el footer fijo */
+}
+h1, h2, h3 { font-family: var(--font-title); color: var(--heading); line-height: 1.2; margin: 0 0 .5em; font-weight: 700; }
+h1 { font-size: clamp(2rem, 4.5vw, 3.1rem); letter-spacing: -.02em; }
+h2 { font-size: clamp(2.1rem, 4vw, 3rem); letter-spacing: -.015em; }
+h3 { font-size: 1.2rem; font-weight: 600; }
+p { margin: 0 0 1em; color: var(--muted); font-size: .92rem; } /* texto de contenido, más chico que los títulos */
+a { color: var(--teal); text-decoration: none; }
+img { max-width: 100%; display: block; }
+
+.container { width: 100%; max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+/* Cada sección ocupa exactamente la franja visible entre el navbar (72px) y el footer,
+   con su contenido centrado. Al ir a una sección, su borde queda justo bajo el navbar. */
+:root { --band: calc(100dvh - 72px - var(--footer-h)); }
+.section {
+  min-height: var(--band); padding: clamp(18px, 4vh, 44px) 0; scroll-margin-top: 72px;
+  display: flex; flex-direction: column; justify-content: center;
+}
+/* Inicio y Proyectos: su contenido arranca a la misma altura que el de Servicios (que va centrado en su franja).
+   --svc-h es el alto del contenido de Servicios, medido en la landing; el margen resulta igual al de Servicios. */
+#inicio, #proyectos { padding-top: max(18px, calc((var(--band) - var(--svc-h, 400px)) / 2)) !important; }
+#inicio { align-items: flex-start !important; }
+/* En celular el inicio se centra en la pantalla (el alineado con Servicios es solo para escritorio) */
+@media (max-width: 720px) { #inicio { padding-top: 16px !important; padding-bottom: 16px; align-items: center !important; } }
+#proyectos { justify-content: flex-start !important; }
+/* En celular, Proyectos se centra en la pantalla (el alineado con Servicios es solo para escritorio) */
+@media (max-width: 720px) { #proyectos { padding-top: 16px !important; justify-content: center !important; } }
+.section > .container { width: 100%; }
+@media (max-height: 760px) { .section { padding-block: 8px; } } /* pantallas bajas: menos relleno */
+.section--page { /* contacto: mismas reglas que las demás secciones */ }
+.section--alt { background: var(--bg-alt); }
+
+/* ---------- El dibujo del ingeniero, de fondo en todas las secciones ----------
+   Fijo en la pantalla (a la derecha, detrás de la terminal del Inicio). Cada sección lleva su copia, la mantiene
+   en el mismo lugar de la pantalla mientras la sección se desliza y la muestra solo dentro de su propia área
+   (clip-path): una sección que entra va descubriendo el dibujo donde ya estaba, así que nunca se mueve.
+   Se funde con la página: sin bordes ni esquinas, sus orillas se desvanecen y su blanco toma el color del fondo. */
+.hero, .section { position: relative; isolation: isolate; clip-path: inset(0); }
+.hero > .container, .section > .container { position: relative; z-index: 1; }
+.engineer-bg { position: absolute; z-index: 0; pointer-events: none;
+  /* centro de la franja visible, descontando dónde está la capa (--layer-top lo pone la landing al hacer scroll;
+     en Contacto, que no se apila, la sección está siempre bajo el navbar) */
+  top: calc(72px + var(--band) / 2 - var(--layer-top, 72px)); translate: 0 -50%;
+  right: max(8px, calc((100% - var(--max)) / 2 - 40px));
+  width: min(790px, 60%); height: clamp(320px, calc(var(--band) * .66), 560px);
+  background: url('/assets/ingeniero.webp') 56% 12% / cover no-repeat; filter: contrast(1.16) saturate(1.12);
+  -webkit-mask-image: radial-gradient(ellipse 50% 50% at 50% 50%, #000 62%, transparent 100%);
+  mask-image: radial-gradient(ellipse 50% 50% at 50% 50%, #000 62%, transparent 100%);
+  mix-blend-mode: multiply; opacity: var(--engineer-op, .4); }
+/* En el Inicio queda detrás de la terminal (que ya lo transparenta): ahí va a plena intensidad; en las demás
+   secciones queda detrás del contenido, translúcido, para no estorbar la lectura */
+.hero .engineer-bg { --engineer-op: 1; }
+/* Modo oscuro: el dibujo invertido (su blanco pasa a negro) y aclarado sobre la página: solo quedan sus trazos, tenues */
+[data-theme='dark'] .engineer-bg { filter: invert(1) hue-rotate(180deg) contrast(1.05); mix-blend-mode: screen; --engineer-op: .28; }
+[data-theme='dark'] .hero .engineer-bg { --engineer-op: .5; }
+/* En celular no hay espacio a un costado: el dibujo quedaría bajo el texto y lo haría difícil de leer */
+@media (max-width: 720px) { .engineer-bg { display: none; } }
+.section__head { max-width: 640px; margin-bottom: clamp(16px, 3.5vh, 40px); }
+/* Rótulo de sección (SERVICES, PROJECTS...): más grande que el texto del contenido */
+.eyebrow {
+  display: inline-block; font-size: 1.3rem; font-weight: 700; letter-spacing: .1em;
+  font-variant-caps: small-caps; color: var(--teal); margin-bottom: 12px; /* versalita en vez de mayúsculas */
+}
+/* En las secciones, el rótulo es el TÍTULO (grande) y la frase de abajo el SUBTÍTULO (más chico).
+   El inicio (hero) mantiene su titular principal. */
+.section .eyebrow { color: var(--rust-title); font-family: var(--font-title); font-weight: 800; font-size: clamp(1.6rem, min(3.6vw, 5.2vh), 2.6rem); letter-spacing: .06em; line-height: 1.15; margin-bottom: 6px; }
+/* Títulos de sección (Inicio, Servicios, Proyectos, Contacto): letra más alta, estirada solo en vertical
+   (el ancho no cambia). Crece hacia arriba desde la línea base, sin acercarse al subtítulo. La copia que vuela
+   desde el menú lleva la misma clase, así que llega con la misma forma. */
+.tall { display: inline-block; transform: scaleY(1.36); transform-origin: 50% 82%; }
+/* Servicios, Proyectos y Contacto: título en versalita (inicial mayúscula y el resto en mayúsculas pequeñas) */
+#servicios .eyebrow, #proyectos .eyebrow, #contacto .eyebrow { text-transform: none; font-variant-caps: small-caps; letter-spacing: .04em; }
+.section h2 { font-size: clamp(1.1rem, min(2vw, 3vh), 1.5rem); font-weight: 600; letter-spacing: 0; color: var(--heading); margin-bottom: .35em; }
+
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 10px 24px;
+  border-radius: 8px; font: inherit; font-weight: 600; font-size: .95rem; line-height: 1.4; /* esquinas poco suavizadas */
+  border: 1.5px solid transparent; cursor: pointer;
+  /* Efecto "material", igual que las tarjetas: se acerca levemente en el eje Z.
+     Neomorfismo: bisel y sombras de luz/sombra hacen que el botón se vea sólido, en relieve sobre la página;
+     al presionarlo se hunde (sombra interior). */
+  transform: perspective(600px) translateZ(0); box-shadow: var(--btn-inset), var(--btn-neo), var(--neo-raise-sm), var(--btn-shadow);
+  transition: transform 350ms ease, box-shadow 350ms ease, background-color 250ms ease, border-color 250ms ease, color 250ms ease;
+}
+.btn:hover { transform: perspective(600px) translateZ(12px); box-shadow: var(--btn-inset), var(--btn-neo), var(--neo-raise), var(--btn-shadow-hover); }
+.btn:active { transform: perspective(600px) translateZ(3px); transition-duration: 120ms;
+  box-shadow: var(--btn-inset), var(--neo-press), -1px -1px 3px var(--neo-hi), 1px 1px 3px var(--neo-lo); }
+/* Efecto tubular: brillo arriba y oscurecimiento abajo, igual que el navbar */
+.btn--primary { --btn-inset: var(--tube-color-inset); --btn-neo: var(--neo-bevel-color); background-color: var(--btn-bg); background-image: var(--tube-color); color: var(--btn-fg); }
+.btn--primary:hover { background-color: var(--btn-bg-hover); }
+.btn--ghost { --btn-inset: var(--tube-inset); --btn-neo: var(--neo-bevel); border-color: var(--line); color: var(--heading); background-color: var(--surface); background-image: var(--nav-tube); }
+.btn--ghost:hover { border-color: var(--teal); color: var(--teal); }
+.btn:disabled { opacity: .6; cursor: not-allowed; transform: none; box-shadow: var(--btn-inset), var(--neo-raise-sm); }
+
+:focus-visible { outline: 3px solid rgba(58, 157, 147, .45); outline-offset: 2px; }
+
+@media (max-width: 720px) {
+  .section { padding: 10px 0; }
+  .section__head p { font-size: .85rem; margin-bottom: 0; }
+}
+
+/* Profundidad (--tz) y ola (--wave) registradas como longitudes para poder animarlas */
+@property --tz { syntax: '<length>'; inherits: false; initial-value: 0px; }
+@property --wave { syntax: '<length>'; inherits: false; initial-value: 0px; }
+@property --wave-ry { syntax: '<angle>'; inherits: false; initial-value: 0deg; }
+/* La inclinación hacia el puntero también se registra: se suaviza ella sola (no toda la transformación),
+   así no choca con la animación de profundidad ni con la ola y el movimiento es fluido */
+@property --rx { syntax: '<angle>'; inherits: false; initial-value: 0deg; }
+@property --press { syntax: '<length>'; inherits: false; initial-value: 0px; }
+@property --ry { syntax: '<angle>'; inherits: false; initial-value: 0deg; }
+/* Posición de la luz del email (Contacto): registrada para que se deslice tras el puntero */
+@property --mx { syntax: '<length-percentage>'; inherits: true; initial-value: 50%; }
+@property --my { syntax: '<length-percentage>'; inherits: true; initial-value: 50%; }
+
+/* Efecto "carta levantada" (ver CardLiftDirective). transform-style: flat: con preserve-3d el contenido
+   (p. ej. el ícono) quedaba coplanar al fondo y desaparecía al inclinarse. */
+.card--lift { position: relative; transform-style: flat;
+  transform: perspective(800px) rotateX(var(--rx)) rotateY(calc(var(--ry) + var(--wave-ry))) translateZ(calc(var(--tz) + var(--wave) - var(--press))) !important;
+  transition: --rx 450ms cubic-bezier(.2, .8, .2, 1), --ry 450ms cubic-bezier(.2, .8, .2, 1), --tz 450ms cubic-bezier(.2, .8, .2, 1),
+    --press 220ms ease-out, box-shadow 450ms cubic-bezier(.2, .8, .2, 1), background-color 350ms ease, border-color 350ms ease !important; will-change: transform; }
+/* Levantada: como una carta que sube y se pega a un vidrio. Llega rápido, choca, rebota apenas y queda
+   pegada (casi plana); toma el óxido del tema y un brillo de vidrio la cruza al hacer contacto. */
+.card--lift.is-lifted { z-index: 5; /* por encima de las tarjetas vecinas y del resto del contenido */
+  --tz: 175px;
+  /* Subida con la curva del choque (acelera, toca el vidrio, rebota y se pega). Es una transición: si el
+     puntero sale a mitad de camino, la tarjeta baja desde donde esté, sin saltos. */
+  transition-duration: 200ms, 200ms, 480ms, 220ms, 300ms, 300ms, 300ms !important;
+  transition-timing-function: cubic-bezier(.2, .8, .2, 1), cubic-bezier(.2, .8, .2, 1),
+    linear(0, .04 12%, .15 25%, .36 37%, .66 47%, 1 55%, .94 62%, .91 69%, .95 76%, 1 83%, .985 91%, 1), ease-out, ease, ease, ease !important;
+  background-color: var(--rust-card) !important; border-color: transparent !important; /* sin línea también al levantarse */
+  box-shadow: var(--neo-bevel-color), calc(var(--sx, 0) * 2.6px) calc(54px + var(--sy, 0) * 2.6px) 80px -12px rgba(16, 24, 40, .55), 0 8px 18px rgba(16, 24, 40, .16) !important; }
+/* Tarjeta clicable: al presionarla se hunde levemente, como un botón */
+.card--lift.is-clickable { cursor: pointer; }
+.card--lift.is-clickable:active { --press: 26px; transition-duration: 200ms, 200ms, 480ms, 90ms, 300ms, 300ms, 300ms !important; }
+.card--lift.is-clickable:focus-visible { outline: 2px solid var(--rust); outline-offset: 4px; }
+[data-theme='dark'] .card--lift.is-lifted {
+  box-shadow: var(--neo-bevel-color), calc(var(--sx, 0) * 2.6px) calc(54px + var(--sy, 0) * 2.6px) 80px -10px rgba(0, 0, 0, .82), 0 6px 14px rgba(0, 0, 0, .35) !important; }
+/* Brillo de vidrio: una franja de luz cruza la tarjeta una vez cuando se pega (transición, no animación,
+   para que nunca se repita sola) */
+.glass-sheen::after { content: ''; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; z-index: 2;
+  background: linear-gradient(115deg, transparent 38%, rgba(255, 255, 255, .55) 48%, rgba(255, 255, 255, .15) 53%, transparent 62%) 140% 0 / 300% 100% no-repeat; }
+[data-theme='dark'] .glass-sheen::after { background-image: linear-gradient(115deg, transparent 38%, rgba(255, 255, 255, .16) 48%, rgba(255, 255, 255, .05) 53%, transparent 62%); }
+.glass-sheen.is-lifted::after, .glass-sheen.is-hl::after { background-position: -40% 0; transition: background-position 750ms cubic-bezier(.3, .6, .3, 1) 200ms; }
+
+/* Título que vuela desde el menú hasta su sección (ver SmoothScrollService.flyTitle) */
+.title-flight { position: fixed; z-index: 60; margin: 0; pointer-events: none; transform-origin: 0 0; white-space: nowrap; will-change: transform; }
+
+/* Cursor de bloque tipo terminal (ver BlockCaretDirective) */
+.has-block-caret { caret-color: transparent; }
+.block-caret { position: absolute; z-index: 2; pointer-events: none; border-radius: 1px; opacity: 0;
+  background: var(--teal); mix-blend-mode: multiply; }
+[data-theme='dark'] .block-caret { background: #6cc4ba; mix-blend-mode: screen; }
+.block-caret.is-on { animation: caret-blink 1.05s steps(1, end) infinite; }
+.block-caret.is-on.is-typing { animation: caret-type 650ms steps(1, end), caret-blink 1.05s steps(1, end) 650ms infinite; }
+@keyframes caret-blink { 0% { opacity: .85; } 50% { opacity: 0; } }
+@keyframes caret-type { 0% { opacity: .85; } }
+
+/* Transiciones entre páginas. Se declaran en CSS para que se apliquen desde el PRIMER cuadro (sin parpadeo).
+   NavService fija --vt-x, --vt-y (centro de la pantalla) y --vt-r, y la clase vt-close al volver. */
+::view-transition-old(root), ::view-transition-new(root) { mix-blend-mode: normal; }
+
+/* Ida a contacto: círculo que se ABRE desde el centro mostrando la página nueva */
+::view-transition-new(root) { animation: ses-reveal 800ms cubic-bezier(.7, 0, .25, 1) both; }
+::view-transition-old(root) { animation: ses-recede 800ms cubic-bezier(.7, 0, .25, 1) both; transform-origin: center; }
+@keyframes ses-reveal {
+  from { clip-path: circle(0px at var(--vt-x, 50vw) var(--vt-y, 50vh)); }
+  to   { clip-path: circle(var(--vt-r, 150vmax) at var(--vt-x, 50vw) var(--vt-y, 50vh)); }
+}
+
+/* Vuelta: la página actual se CIERRA en un círculo hacia el centro y deja ver la anterior */
+html.vt-close::view-transition-old(root) { z-index: 2; animation: ses-close 800ms cubic-bezier(.7, 0, .25, 1) both; }
+html.vt-close::view-transition-new(root) { z-index: 1; animation: ses-emerge 800ms cubic-bezier(.7, 0, .25, 1) both; transform-origin: center; }
+@keyframes ses-close {
+  from { clip-path: circle(var(--vt-r, 150vmax) at var(--vt-x, 50vw) var(--vt-y, 50vh)); }
+  to   { clip-path: circle(0px at var(--vt-x, 50vw) var(--vt-y, 50vh)); }
+}
+@keyframes ses-emerge {
+  from { transform: scale(.92); filter: brightness(var(--vt-dim)) blur(var(--vt-blur)); border-radius: 24px; }
+}
+@keyframes ses-recede {
+  to { transform: scale(.92); filter: brightness(var(--vt-dim)) blur(var(--vt-blur)); border-radius: 24px; }
+}

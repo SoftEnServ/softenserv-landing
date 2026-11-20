@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Software Engineering Services | Servicios de Ingeniería en Software</title>
+  <meta name="description" content="Software development and system solutions for businesses and individuals: we gather your requirements and build the solution.">
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#1D3557">
+  <!-- Fondo de cada tema desde el primer cuadro (evita un destello claro antes del splash en modo oscuro) -->
+  <style>
+    html, body { background: #f3f5f8; }
+    html[data-theme='dark'], html[data-theme='dark'] body { background: #121826; color-scheme: dark; }
+  </style>
+  <script>
+    // Aplica tema e idioma antes de cargar Angular para evitar parpadeo
+    (function () {
+      var t = null;
+      try { t = localStorage.getItem('ses-theme'); } catch (e) {}
+      if (t !== 'light' && t !== 'dark') t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', t);
+      try { var l = localStorage.getItem('ses-lang'); if (l === 'es' || l === 'en') document.documentElement.lang = l; } catch (e) {}
+    })();
+  </script>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="alternate icon" type="image/png" href="favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Manrope: títulos · Inter: textos, botones y navegación -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <app-root></app-root>
+</body>
+</html>
